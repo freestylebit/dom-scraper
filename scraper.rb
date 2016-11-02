@@ -5,7 +5,12 @@ require 'io/console'
 require 'mechanize'
 require 'pry'
 
+
+load "lib/helper.rb"
+
 class Scraper
+  include Helper
+
   def initialize(user, pass)
     @agent = Mechanize.new
     @login = 'https://mydom.dom.com/'
@@ -32,14 +37,15 @@ class Scraper
   end
 
   def analyze_account(page)
-    @account['bill'] = page.at('#homepageContent .contentRowPadding div:nth-child(2) p span').text.strip
-    @account['due_date'] = page.at('#homepageContent .contentRowPadding div:nth-child(1) p span').text.strip
+    @account['bill'] = parse_text(page.at('#homepageContent .contentRowPadding div:nth-child(2) p span'))
+    @account['due_date'] = parse_text(page.at('#homepageContent .contentRowPadding div:nth-child(1) p span'))
 
     detail = @agent.get('/Usage/ViewPastUsage?statementType=4')
-    @account['usage'] = detail.at('#pageContent .row.contentRowPadding table#paymentsTable tr:nth-child(2) td:nth-child(5)').text.strip
-    @account['service_start'] = detail.at('#pageContent .row.contentRowPadding table#paymentsTable tr:nth-child(2) td:nth-child(1)').text.strip
-    @account['service_end'] = detail.at('#pageContent .row.contentRowPadding table#paymentsTable tr:nth-child(3) td:nth-child(1)').text.strip
+    @account['usage'] = parse_text(detail.at('#pageContent .row.contentRowPadding table#paymentsTable tr:nth-child(2) td:nth-child(5)'))
+    @account['service_start'] = parse_text(detail.at('#pageContent .row.contentRowPadding table#paymentsTable tr:nth-child(2) td:nth-child(1)'))
+    @account['service_end'] = parse_text(detail.at('#pageContent .row.contentRowPadding table#paymentsTable tr:nth-child(3) td:nth-child(1)'))
   end
+
 end
 
 puts '--> To acquire your latest utility specs, please enter your credentials'
