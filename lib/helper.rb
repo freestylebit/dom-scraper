@@ -1,3 +1,5 @@
+#!/usr/bin/ruby
+
 module Helper
 
   # In the event nokogiri throws a nil, handle the output differently...
