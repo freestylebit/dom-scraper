@@ -33,4 +33,5 @@ print 'Meter Start Date  | ' + results['service_start']
 puts
 print 'Meter End Date    | ' + results['service_end']
 puts
+puts '--------------------------------------'
 puts

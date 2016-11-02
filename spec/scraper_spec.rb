@@ -1,0 +1,3 @@
+describe Scraper do
+
+end
