@@ -25,6 +25,8 @@ class Scraper
 
     page = @agent.submit login_form
 
+    # A way to check if the login failed is if we get redirected
+    # back to the same page.
     if (/https:\/\/mydom.dom.com\/siteminderagent\/forms\/login.fcc/.match(page.uri.to_s))
       return '--> Something went wrong!  Maybe check your credentials?'
     else
