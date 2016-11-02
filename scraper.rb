@@ -1,3 +1,7 @@
+#!/usr/bin/ruby
+
+require 'io/console'
+
 require 'mechanize'
 require 'pry'
 
@@ -19,7 +23,12 @@ class Scraper
 
     page = @agent.submit login_form
 
-    self.analyze_account(page)
+    if (/https:\/\/mydom.dom.com\/siteminderagent\/forms\/login.fcc/.match(page.uri.to_s))
+      puts '--> Something went wrong!  Maybe check your credentials?'
+    else
+      self.analyze_account(page)
+      puts @account
+    end
   end
 
   def analyze_account(page)
@@ -33,6 +42,14 @@ class Scraper
   end
 end
 
+puts '--> To acquire your latest utility specs, please enter your credentials'
+puts
+print '--> Username: '
+user = gets.strip
+puts
+print '--> Password: '
+pass = STDIN.noecho(&:gets).strip
+puts
 
-scraper = Scraper.new('user', 'pass');
+scraper = Scraper.new(user, pass);
 scraper.query
