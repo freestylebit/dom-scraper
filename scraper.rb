@@ -24,10 +24,10 @@ class Scraper
     page = @agent.submit login_form
 
     if (/https:\/\/mydom.dom.com\/siteminderagent\/forms\/login.fcc/.match(page.uri.to_s))
-      puts '--> Something went wrong!  Maybe check your credentials?'
+      return '--> Something went wrong!  Maybe check your credentials?'
     else
       self.analyze_account(page)
-      puts @account
+      return @account
     end
   end
 
@@ -52,4 +52,4 @@ pass = STDIN.noecho(&:gets).strip
 puts
 
 scraper = Scraper.new(user, pass);
-scraper.query
+puts scraper.query
