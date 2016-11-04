@@ -6,6 +6,7 @@ GEM
     docile (1.1.5)
     domain_name (0.5.20161021)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.1.1)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     json (2.0.2)
@@ -61,6 +62,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv (~> 2.1, >= 2.1.1)
   mechanize (~> 2.7, >= 2.7.5)
   nokogiri (~> 1.6, >= 1.6.8.1)
   pry (~> 0.10.4)

@@ -2,11 +2,7 @@
 
 load "lib/helper.rb"
 
-# Generate code coverage report.
-require 'simplecov'
-SimpleCov.start
-
-describe "Helper" do
+describe Helper do
   before :each do
     # Mock some generic class to expose the module.
     @faux = Class.new.extend(Helper)
