@@ -9,7 +9,8 @@ module Helper
       return value.text.strip
     end
 
-    return nil
+    # Pass the same object type regardless.
+    return ''
   end
 
 end
