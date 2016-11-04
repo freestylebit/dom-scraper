@@ -11,4 +11,5 @@ group :development do
   gem 'rb-readline', '~> 0.5.3'
   gem 'vcr', '3.0.3'
   gem 'webmock', '2.1.0'
+  gem 'rubocop', '~> 0.45.0', require: false
 end
