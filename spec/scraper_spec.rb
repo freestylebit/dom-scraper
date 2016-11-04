@@ -24,6 +24,8 @@ describe 'Scraper' do
       scraper = Scraper.new(ENV['DOM_USERNAME'], ENV['DOM_PASSWORD'])
       account = scraper.query
 
+      expect(account).to eq('')
+
       # e.g. $38.46
       expect(scraper.a_bill).to match(/\$\d*(?:\.\d+)?/)
 
