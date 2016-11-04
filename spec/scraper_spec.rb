@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-load "lib/scraper.rb"
+require_relative "../lib/scraper.rb"
 
 describe "Scraper" do
   it "yields a message saying credentials are incorrect with bad username and password" do
@@ -10,7 +10,7 @@ describe "Scraper" do
     expect(results).to eq('--> Something went wrong!  Maybe check your credentials?')
   end
 
-  it "yields some valid results with correct credentials..." do
+  it "yields some valid results with correct credentials." do
     scraper = Scraper.new(ENV['DOM_USERNAME'], ENV['DOM_PASSWORD']);
     results = scraper.query
 

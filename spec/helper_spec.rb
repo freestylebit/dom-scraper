@@ -1,6 +1,8 @@
 #!/usr/bin/ruby
 
-load "lib/helper.rb"
+require_relative "../lib/helper.rb"
+
+require "nokogiri"
 
 describe Helper do
   before :each do
@@ -11,7 +13,11 @@ describe Helper do
     @html = Nokogiri::HTML('<html><body><div id="sample">Unicorn</div></body></html>')
   end
 
-  it "parses nokogiri DOM elements correctly" do
+  it "parses Nokogiri DOM elements correctly into parse_text()" do
     expect(@faux.parse_text(@html.at('#sample'))).to eq('Unicorn')
+  end
+
+  it "yields a nil if the object passed into parse_text is not of type Nokogiri" do
+    expect(@faux.parse_text(1234)).to eq(nil)
   end
 end

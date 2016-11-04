@@ -3,7 +3,7 @@
 require 'mechanize'
 require 'pry'
 
-load "lib/helper.rb"
+require_relative "helper.rb"
 
 class Scraper
   include Helper
