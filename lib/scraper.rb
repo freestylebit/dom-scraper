@@ -20,14 +20,14 @@ class Scraper
   end
 
   def query
-    page = login()
+    page = login
 
     # A way to check if the login failed is if the page simply has a logout link.
-    if (parse_text(page.at('#mydom-nav-menu li:nth-child(3) a')) == 'Sign Out')
+    if parse_text(page.at('#mydom-nav-menu li:nth-child(3) a')) == 'Sign Out'
       analyze_account(page)
-      return @account
+      @account
     else
-      return '--> Something went wrong! Maybe check your credentials?'
+      '--> Something went wrong! Maybe check your credentials?'
     end
   end
 
