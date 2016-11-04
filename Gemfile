@@ -13,4 +13,5 @@ group :development do
   gem 'vcr', '3.0.3'
   gem 'webmock', '2.1.0'
   gem 'rubocop', '~> 0.45.0', require: false
+  gem 'rake', '~> 10.4', '>= 10.4.2'
 end

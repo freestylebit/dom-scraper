@@ -10,7 +10,7 @@ Extracts bill amount, bill due date, power usage (in kWh), and meter reading sta
 
 ### Running the script
 ```
-ruby script.rb
+rake scraper:dom
 ```
 
 ### Running tests
