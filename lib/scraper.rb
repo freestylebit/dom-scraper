@@ -41,6 +41,8 @@ class Scraper
     @agent.submit login_form
   end
 
+  # Query for all metadata requested. For brevity, return a hash.
+  # This could be separate getter methods, however...
   def analyze_account(page)
     @account['bill'] = parse_text(page.at('.contentRowPadding div:nth-child(2) p span'))
     @account['due_date'] = parse_text(page.at('.contentRowPadding div:nth-child(1) p span'))
