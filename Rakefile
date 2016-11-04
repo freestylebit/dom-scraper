@@ -19,21 +19,26 @@ namespace :scraper do
     puts
 
     scraper = Scraper.new(user, pass)
-    results = scraper.query
+    result = scraper.query
+
+    if result != ''
+      puts result
+      next
+    end
     puts
     puts '--------------------------------------'
     puts '            Account Summary           '
     puts '--------------------------------------'
-    print 'Bill Amount       | ' + results['bill']
+    print 'Bill Amount       | ' + scraper.a_bill
     puts
-    print 'Bill Due Date     | ' + results['due_date']
+    print 'Bill Due Date     | ' + scraper.a_due_date
     puts
     puts
-    print 'Usage (kWh)       | ' + results['usage']
+    print 'Usage (kWh)       | ' + scraper.a_usage
     puts
-    print 'Meter Start Date  | ' + results['service_start']
+    print 'Meter Start Date  | ' + scraper.a_service_start
     puts
-    print 'Meter End Date    | ' + results['service_end']
+    print 'Meter End Date    | ' + scraper.a_service_end
     puts
     puts '--------------------------------------'
     puts

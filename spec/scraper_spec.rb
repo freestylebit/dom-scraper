@@ -22,18 +22,18 @@ describe 'Scraper' do
   it 'yields some valid results with correct credentials.' do
     VCR.use_cassette('dominion_working_login') do
       scraper = Scraper.new(ENV['DOM_USERNAME'], ENV['DOM_PASSWORD'])
-      results = scraper.query
+      account = scraper.query
 
       # e.g. $38.46
-      expect(results['bill']).to match(/\$\d*(?:\.\d+)?/)
+      expect(scraper.a_bill).to match(/\$\d*(?:\.\d+)?/)
 
       # e.g. 625
-      expect(results['usage']).to match(/\d*/)
+      expect(scraper.a_usage).to match(/\d*/)
 
       # Rely on the Date.parse() method to determine if string is remotely Date.
-      expect(Date.parse(results['due_date']).class).to eq(Date)
-      expect(Date.parse(results['service_start']).class).to eq(Date)
-      expect(Date.parse(results['service_end']).class).to eq(Date)
+      expect(Date.parse(scraper.a_due_date).class).to eq(Date)
+      expect(Date.parse(scraper.a_service_start).class).to eq(Date)
+      expect(Date.parse(scraper.a_service_end).class).to eq(Date)
     end
   end
 end
