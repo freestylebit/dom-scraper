@@ -26,6 +26,10 @@ rspec spec/
 ```
 
 Note: This project includes simplecov.  You can check out the coverage/ directory automatically generated to check code coverage.
+Note: VCR is included to minimize live requests to the server during testing. Once in a while, you should stash the fixtures directory to get updated data.
+```
+rm -rf /spec/fixtures
+```
 
 ## Questions?  Issues?
 [Ping me via email](mailto: pcho231@gmail.com) or [submit an ticket in the issue queue!](https://github.com/freestylebit/dom-scraper/issues)
