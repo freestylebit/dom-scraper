@@ -51,3 +51,6 @@ build-iPhoneSimulator/
 
 # Mac-generated files
 .DS_Store
+
+# VCR cassette files
+spec/fixtures/
