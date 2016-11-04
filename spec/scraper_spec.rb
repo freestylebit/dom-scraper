@@ -15,7 +15,7 @@ describe 'Scraper' do
       scraper = Scraper.new('user', 'pass')
       results = scraper.query
 
-      expect(results).to eq('--> Something went wrong!  Maybe check your credentials?')
+      expect(results).to eq('--> Something went wrong! Maybe check your credentials?')
     end
   end
 
