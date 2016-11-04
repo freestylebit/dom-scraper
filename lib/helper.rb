@@ -1,16 +1,13 @@
 #!/usr/bin/ruby
+# frozen_string_literal: true
 
 module Helper
-
   # In the event nokogiri throws a nil, handle the output differently...
   # or else it'll break the script.
   def parse_text(value)
-    if (value.class == Nokogiri::XML::Element)
-      return value.text.strip
-    end
+    return value.text.strip if value.class == Nokogiri::XML::Element
 
     # Pass the same object type regardless.
-    return ''
+    ''
   end
-
 end

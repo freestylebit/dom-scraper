@@ -1,8 +1,9 @@
 #!/usr/bin/ruby
+# frozen_string_literal: true
 
-require_relative "../lib/helper.rb"
+require_relative '../lib/helper.rb'
 
-require "nokogiri"
+require 'nokogiri'
 
 describe Helper do
   before :each do
@@ -13,11 +14,11 @@ describe Helper do
     @html = Nokogiri::HTML('<html><body><div id="sample">Unicorn</div></body></html>')
   end
 
-  it "parses Nokogiri DOM elements correctly into parse_text()" do
+  it 'parses Nokogiri DOM elements correctly into parse_text()' do
     expect(@faux.parse_text(@html.at('#sample'))).to eq('Unicorn')
   end
 
-  it "yields a nil if the object passed into parse_text is not of type Nokogiri" do
+  it 'yields a nil if the object passed into parse_text is not of type Nokogiri' do
     # Note: Wanted to keep things consistent.  Empty string instead of nil.
     expect(@faux.parse_text(1234)).to eq('')
   end

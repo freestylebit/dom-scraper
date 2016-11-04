@@ -1,6 +1,7 @@
 #!/usr/bin/ruby
+# frozen_string_literal: true
 
-require_relative "lib/scraper.rb"
+require_relative 'lib/scraper.rb'
 
 require 'io/console'
 
@@ -16,7 +17,7 @@ puts '--> Give me one sec...'
 puts
 puts
 
-scraper = Scraper.new(user, pass);
+scraper = Scraper.new(user, pass)
 results = scraper.query
 puts
 puts '--------------------------------------'

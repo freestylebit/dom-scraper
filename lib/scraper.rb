@@ -1,9 +1,10 @@
 #!/usr/bin/ruby
+# frozen_string_literal: true
 
 require 'mechanize'
 require 'pry'
 
-require_relative "helper.rb"
+require_relative 'helper.rb'
 
 class Scraper
   include Helper
@@ -14,7 +15,7 @@ class Scraper
     @username = user
     @password = pass
 
-    @account = Hash.new
+    @account = {}
   end
 
   def query
@@ -27,10 +28,10 @@ class Scraper
 
     # A way to check if the login failed is if we get redirected
     # back to the same page.
-    if (/https:\/\/mydom.dom.com\/siteminderagent/.match(page.uri.to_s))
+    if /https:\/\/mydom.dom.com\/siteminderagent/.match(page.uri.to_s)
       return '--> Something went wrong!  Maybe check your credentials?'
     else
-      self.analyze_account(page)
+      analyze_account(page)
       return @account
     end
   end
@@ -44,5 +45,4 @@ class Scraper
     @account['service_start'] = parse_text(detail.at('#pageContent .row.contentRowPadding table#paymentsTable tr:nth-child(2) td:nth-child(1)'))
     @account['service_end'] = parse_text(detail.at('#pageContent .row.contentRowPadding table#paymentsTable tr:nth-child(3) td:nth-child(1)'))
   end
-
 end

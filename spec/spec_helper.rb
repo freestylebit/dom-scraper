@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Generate code coverage report.
 require 'simplecov'
 SimpleCov.start do
