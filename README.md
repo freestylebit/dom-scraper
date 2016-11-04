@@ -10,7 +10,6 @@ Extracts bill amount, bill due date, power usage (in kWh), and meter reading sta
 
 ### Running the script
 ```
-cd /path/to/repo
 ruby script.rb
 ```
 
