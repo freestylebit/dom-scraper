@@ -18,6 +18,6 @@ describe Helper do
   end
 
   it "yields a nil if the object passed into parse_text is not of type Nokogiri" do
-    expect(@faux.parse_text(1234)).to eq(nil)
+    expect(@faux.parse_text(1234)).to be_nil
   end
 end

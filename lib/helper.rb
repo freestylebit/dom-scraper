@@ -7,9 +7,9 @@ module Helper
   def parse_text(value)
     if (value.class == Nokogiri::XML::Element)
       return value.text.strip
-    else
-      return nil
     end
+
+    return nil
   end
 
 end
