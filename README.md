@@ -29,7 +29,7 @@ Note: This project includes simplecov.  You can check out the coverage/ director
 
 Note: VCR is included to minimize live requests to the server during testing. Once in a while, you should stash the fixtures directory to get updated data.
 ```
-rm -rf /spec/fixtures
+rm -rf spec/fixtures
 ```
 
 ## Questions?  Issues?
