@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 source 'https://rubygems.org'
 
-gem 'nokogiri', '~> 1.6', '>= 1.6.8.1'
+gem 'nokogiri', '~> 1.8', '>= 1.8.1'
 gem 'mechanize', '~> 2.7', '>= 2.7.5'
 
 group :development do
@@ -12,6 +12,6 @@ group :development do
   gem 'rb-readline', '~> 0.5.3'
   gem 'vcr', '3.0.3'
   gem 'webmock', '2.1.0'
-  gem 'rubocop', '~> 0.45.0', require: false
+  gem 'rubocop', '~> 0.49.0', require: false
   gem 'rake', '~> 10.4', '>= 10.4.2'
 end
